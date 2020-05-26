@@ -12,7 +12,17 @@
     }
 </style>
 <body>
-    <h1>Keep going on...</h1>
-    <p>It's just a test</p>
+    <div class="header">
+        <h1>Keep going on...</h1> 
+    </div>
+    
+        {% for post in posts %}
+            <div>
+                <p>published: {{post.published_date}}</p>
+                <h2><a href="#">{{post.title}}</a></h2>
+                <p>{{post.text|linebreaksbr}}</p>
+            </div>    
+        {% endfor %}
+    
 </body>
 </html>
