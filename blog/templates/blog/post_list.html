@@ -1,28 +1,14 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Django Site</title>
-    <!--<link rel="stylesheet" type="text/css" href="style.css">-->
-</head>
-<style>
-    .body{
-        color: brown;
-    }
-</style>
-<body>
-    <div class="header">
-        <h1>Keep going on...</h1> 
-    </div>
-    
-        {% for post in posts %}
-            <div>
+{% extends 'blog/base.html' %} <!-- rozszerzamy szablon o base.html -->
+{% block content %}
+<!--- pętla za każdy obiekt z listy -->
+    {% for post in posts %}
+        <div class="post">
+            <div class="date">
                 <p>published: {{post.published_date}}</p>
-                <h2><a href="#">{{post.title}}</a></h2>
-                <p>{{post.text|linebreaksbr}}</p>
-            </div>    
-        {% endfor %}
-    
-</body>
-</html>
+            </div>
+            <!-- odnośnik do strony ze szczegółami wpisu, pk = primary key w bazie danych -->
+            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h2>
+            <p>{{post.text|linebreaksbr}}</p>
+        </div>    
+    {% endfor %}
+{% endblock %}
