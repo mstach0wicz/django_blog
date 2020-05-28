@@ -1,0 +1,9 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <h2>Nowy Post</h2>
+    <form method="post" class="post-form">{% csrf_token %} <!-- Token zabezpieczający przeciwko atakom Cross-site request forgery -->
+        {{ form.as_p }} <!-- Wyświetlamy formularz -->
+        <button type="submit" class="save btn btn-default"><span class="material-icons md-36">done</span></button>
+    </form>
+{% endblock %}

@@ -6,7 +6,7 @@
             <div class="date">
                 <p>published: {{post.published_date}}</p>
             </div>
-            <!-- odnośnik do strony ze szczegółami wpisu, pk = primary key w bazie danych -->
+            <!-- odnośnik do strony ze szczegółami wpisu(post_detail), pk = primary key w bazie danych -->
             <h2><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h2>
             <p>{{post.text|linebreaksbr}}</p>
         </div>    
