@@ -7,7 +7,7 @@ from .forms import PostForm # Importujemy model PostForm
 # render złoży nasz template blog/post_list.html
 def post_list(request):
     # Tworzymy zmienną 'posts' dla naszego QuerySetu i ustawiamy filtrowanie wg daty publikacji postu
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
     return render(request, 'blog/post_list.html', {'posts':posts}) # Przekazujemy dane do naszego szablonu 
 
 def post_detail(request, pk):
