@@ -1,2 +1,2 @@
 # Django Blog
-Blog stworzony na frameworku Django
+Blog site made with Django framework.
